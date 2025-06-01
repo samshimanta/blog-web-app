@@ -5,17 +5,17 @@ An express application using MVC architecture for a simple blog application
 
 ### Installing
 
-*Clone the repo from github
+* Clone the repo from github
 ```
 gil clone <url>
 npm install
 ```
 
-*Run the Dockerfile
+* Run the Dockerfile
 ```
 docker build -t <image_name>
 ```
-*Run the docker-compose.yml file
+* Run the docker-compose.yml file
 ```
 docker compose up -d
 ```
