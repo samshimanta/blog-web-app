@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: blog_db_image
+    image: samsshimanta/blog_db_image:latest
     container_name: blog_db_container
     restart: always
     environment:
