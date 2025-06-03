@@ -13,7 +13,13 @@ const UserModel = {
         const values = [name, email, location];
         const result = await pool.query(query, values);
         return result.rows[0];
-      }
+      },
+      getByLocation: async (location) => {
+        const query = 'SELECT * FROM users WHERE location = $1';
+        const values = [location];
+        const result = await pool.query(query, values);
+        return result.rows;
+    },
 }
 
 module.exports = UserModel

@@ -19,7 +19,16 @@ const UserController ={
         } catch (error) {
           res.status(500).json({ error: error.message });
         }
-    }
+    },
+    getUsersByLocation: async (req, res) => {
+      const { location } = req.query;
+      try {
+          const users = await UserModel.getByLocation(location);
+          res.status(200).json(users);
+      } catch (error) {
+          res.status(500).json({ error: error.message });
+      }
+  },
 
     
 }
