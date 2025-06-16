@@ -1,12 +1,25 @@
 const express = require('express');
-const pool = require('./src/config/db-config');
+const dbConfigure = require('./src/config/db-config');
 const userRoutes = require('./src/app/route/user.route')
+const tutorialRoutes = require("./src/app/route/turorial.routes")
+
+const pool = dbConfigure.pool 
 
 const app = express();
 app.use(express.json());
 
+const db = require("./src/app/model/index")
+db.sequelize.sync()
+.then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
+
 // Use the user routes
 app.use('/users', userRoutes);
+app.use('/tutorials' , tutorialRoutes)
 
 // // Route to get all users
 // app.get('/users', async (req, res) => {
