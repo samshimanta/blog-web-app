@@ -2,6 +2,7 @@ const express = require('express');
 const dbConfigure = require('./src/config/db-config');
 const userRoutes = require('./src/app/route/user.route')
 const tutorialRoutes = require("./src/app/route/turorial.routes")
+const authorRoutes = require("./src/app/route/author.route")
 
 const pool = dbConfigure.pool 
 
@@ -20,7 +21,8 @@ db.sequelize.sync()
 // Use the user routes
 app.use('/users', userRoutes);
 app.use('/tutorials' , tutorialRoutes)
-
+app.use('/author'  , authorRoutes)
+ 
 // // Route to get all users
 // app.get('/users', async (req, res) => {
 //   try {
